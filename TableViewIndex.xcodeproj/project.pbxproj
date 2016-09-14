@@ -12,6 +12,7 @@
 		EBE8406C1D88C88400842BA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBE8406A1D88C88400842BA0 /* Main.storyboard */; };
 		EBE8406E1D88C88400842BA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE8406D1D88C88400842BA0 /* Assets.xcassets */; };
 		EBE840711D88C88400842BA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBE8406F1D88C88400842BA0 /* LaunchScreen.storyboard */; };
+		EBE840791D88CA4E00842BA0 /* bandas.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBE840781D88CA4E00842BA0 /* bandas.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		EBE8406D1D88C88400842BA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBE840701D88C88400842BA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EBE840721D88C88400842BA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBE840781D88CA4E00842BA0 /* bandas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bandas.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +40,7 @@
 		EBE8405A1D88C88300842BA0 = {
 			isa = PBXGroup;
 			children = (
+				EBE840781D88CA4E00842BA0 /* bandas.plist */,
 				EBE840651D88C88400842BA0 /* TableViewIndex */,
 				EBE840641D88C88400842BA0 /* Products */,
 			);
@@ -127,6 +130,7 @@
 				EBE840711D88C88400842BA0 /* LaunchScreen.storyboard in Resources */,
 				EBE8406E1D88C88400842BA0 /* Assets.xcassets in Resources */,
 				EBE8406C1D88C88400842BA0 /* Main.storyboard in Resources */,
+				EBE840791D88CA4E00842BA0 /* bandas.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +267,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 66TFW9PS7V;
 				INFOPLIST_FILE = TableViewIndex/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.senacrs.edm.gt.TableViewIndex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -276,6 +281,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 66TFW9PS7V;
 				INFOPLIST_FILE = TableViewIndex/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.senacrs.edm.gt.TableViewIndex;
 				PRODUCT_NAME = "$(TARGET_NAME)";

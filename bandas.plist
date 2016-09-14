@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>A</key>
+	<array>
+		<string>Angra</string>
+		<string>Aerosmith</string>
+		<string>ACDC</string>
+		<string>Avantasia</string>
+	</array>
+	<key>B</key>
+	<array>
+		<string>Barão Vermelho</string>
+		<string>Bon Jovi</string>
+		<string>Bee Gees</string>
+	</array>
+	<key>G</key>
+	<array>
+		<string>Guns&apos;N Roses</string>
+		<string>Green Day</string>
+		<string>Gorillaz</string>
+	</array>
+	<key>C</key>
+	<array>
+		<string>Cachorro Loco</string>
+		<string>Coldplay</string>
+		<string>Creed</string>
+		<string>Capital Inicial</string>
+		<string>Cássia Eller</string>
+	</array>
+</dict>
+</plist>

@@ -8,11 +8,54 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    var musicalGroups : NSDictionary = NSDictionary()
+    var keysOfMusicalGroups : NSMutableArray = NSMutableArray()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let bundle = Bundle.main
+        let path = bundle.path(forResource: "bandas", ofType: "plist")
+        musicalGroups = NSDictionary(contentsOfFile: path!)!
+        keysOfMusicalGroups = NSMutableArray(array: musicalGroups.allKeys)
+        
+        keysOfMusicalGroups.sort(using: NSSelectorFromString("compare:"))
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        let myKey : String = keysOfMusicalGroups.object(at: section) as! String
+        let sectionList : NSArray = musicalGroups.object(forKey: myKey) as! NSArray
+        return sectionList.count
+        
+    }
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return keysOfMusicalGroups.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let myId : String = "exemplo"
+        var cell : UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: myId)
+        
+        if cell == nil
+        {
+            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: myId)
+        }
+        
+        let section : Int = indexPath.section
+        let row : Int = indexPath.row
+        
+        let key : String = keysOfMusicalGroups.object(at: section) as! String
+        let groups : NSArray = musicalGroups.object(forKey: key) as! NSArray
+        let musicalGroup : String = groups.object(at: row) as! String
+        
+        cell.textLabel?.text = musicalGroup
+        return cell
     }
 
     override func didReceiveMemoryWarning() {
