@@ -12,7 +12,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var musicalGroups : NSDictionary = NSDictionary()
     var keysOfMusicalGroups : NSMutableArray = NSMutableArray()
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +20,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let path = bundle.path(forResource: "bandas", ofType: "plist")
         musicalGroups = NSDictionary(contentsOfFile: path!)!
         keysOfMusicalGroups = NSMutableArray(array: musicalGroups.allKeys)
-        
         keysOfMusicalGroups.sort(using: NSSelectorFromString("compare:"))
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -33,6 +32,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+
+        let titulo : String = keysOfMusicalGroups.object(at: section) as! String
+        return titulo
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return keysOfMusicalGroups.count
@@ -51,8 +56,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let row : Int = indexPath.row
         
         let key : String = keysOfMusicalGroups.object(at: section) as! String
-        let groups : NSArray = musicalGroups.object(forKey: key) as! NSArray
-        let musicalGroup : String = groups.object(at: row) as! String
+        let group : NSArray = musicalGroups.object(forKey: key) as! NSArray
+        let musicalGroup : String = group.object(at: row) as! String
         
         cell.textLabel?.text = musicalGroup
         return cell
