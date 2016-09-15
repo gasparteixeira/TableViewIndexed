@@ -10,56 +10,39 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var musicalGroups : NSDictionary = NSDictionary()
-    var keysOfMusicalGroups : NSMutableArray = NSMutableArray()
+    var musicalGroups : [[String]] = []
+    var musicalTitles : [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let bundle = Bundle.main
-        let path = bundle.path(forResource: "bandas", ofType: "plist")
-        musicalGroups = NSDictionary(contentsOfFile: path!)!
-        keysOfMusicalGroups = NSMutableArray(array: musicalGroups.allKeys)
-        keysOfMusicalGroups.sort(using: NSSelectorFromString("compare:"))
+        let dict = NSDictionary(contentsOfFile: Bundle.main.path(forResource: "bandas", ofType: "plist")!) as? [String:[String]] ?? [:]
         
+        dict.keys.sorted().forEach{
+            musicalTitles.append($0)
+            musicalGroups.append(dict[$0]!.sorted())
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        let myKey : String = keysOfMusicalGroups.object(at: section) as! String
-        let sectionList : NSArray = musicalGroups.object(forKey: myKey) as! NSArray
-        return sectionList.count
+        return musicalGroups[section].count
         
     }
     
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return musicalTitles[section]
 
-        let titulo : String = keysOfMusicalGroups.object(at: section) as! String
-        return titulo
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return keysOfMusicalGroups.count
+        return musicalTitles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let myId : String = "exemplo"
-        var cell : UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: myId)
-        
-        if cell == nil
-        {
-            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: myId)
-        }
-        
-        let section : Int = indexPath.section
-        let row : Int = indexPath.row
-        
-        let key : String = keysOfMusicalGroups.object(at: section) as! String
-        let group : NSArray = musicalGroups.object(forKey: key) as! NSArray
-        let musicalGroup : String = group.object(at: row) as! String
-        
-        cell.textLabel?.text = musicalGroup
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "exemplo")
+        cell.textLabel?.text = musicalGroups[indexPath.section][indexPath.row]
         return cell
     }
 
